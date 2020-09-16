@@ -1,0 +1,63 @@
+ul
+{
+    position: absolute;
+    right: 0px;
+    list-style-type: none;
+    margin:0;
+    padding:0;
+    border: 2px solid black;
+    /* clear:both; */
+    /* width: 100%; */
+}
+
+li
+{
+    float: left;
+}
+
+li a
+{
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
+}
+
+.category-count
+{
+    border: 2px solid black;
+    display: inline-block;
+    float: left;
+    width: 40%;
+    height: 2em;
+    margin: 10px;
+    margin-bottom: 20px;
+    /* text-align: right; */
+}
+
+/* .span-count
+{
+    position: relative;
+    right:0;
+    /* display: inline-block;
+    margin-right: 0; */
+    /* position: relative;
+    left: 0; */
+/* } */ 
+
+.name-div
+{
+    display: inline-block;
+    /* position: inherit;
+    right: 0; */
+    float: left;
+    margin-left: 10px;
+}
+
+.count-div
+{
+    display: inline-block;
+    /* position: absolute;
+    right: 0; */
+    float: right;
+    margin-right: 10px;
+}

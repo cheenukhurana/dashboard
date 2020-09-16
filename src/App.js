@@ -1,24 +1,34 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import {AuthProvider} from './auth/AuthProvider'
+import { UserProvider } from './auth/UserProvider'
+import Home from './Home'
+import Login from './auth/Login'
+import Signup from './auth/Signup'
+import PasswordForgot from './auth/PasswordForgot'
+import PasswordReset from './auth/PasswordReset'
+import PrivateRoute from './routes/PrivateRoute';
+import UnauthenticatedRoute from './routes/UnauthenticatedRoute'
+import TopMenu from './TopMenu'
+import Category from './Category'
+
+// import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <AuthProvider>
+        <UserProvider>
+          <div>
+            <TopMenu />
+            <PrivateRoute exact path = "/" component={Home}></PrivateRoute>
+            <UnauthenticatedRoute exact path='/signup' component={Signup} />
+            <UnauthenticatedRoute exact path='/login' component={Login} />
+            <UnauthenticatedRoute exact path='/password/new' component={PasswordForgot} />
+            <UnauthenticatedRoute path='/reset/:id' component={PasswordReset} />
+            <PrivateRoute path="/category/:id" component={Category} />
+          </div>
+        </UserProvider>
+      </AuthProvider>
     </div>
   );
 }
